@@ -4,7 +4,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import IntroScreen from "./lib/screens/introduction/IntroScreen";
 import Home from "./lib/screens/home/Home";
-import AddHabit from "./lib/screens/add_habit/AddHabit";
+import AddHabit from "./lib/screens/addHabit/AddHabit";
 
 const Stack = createNativeStackNavigator();
 
