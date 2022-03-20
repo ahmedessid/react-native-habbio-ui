@@ -6,25 +6,34 @@ import IntroScreen from "./lib/screens/introduction/IntroScreen";
 import Home from "./lib/screens/home/Home";
 import AddHabit from "./lib/screens/addHabit/AddHabit";
 
+import { Provider } from "react-redux";
+import { store } from "./lib/redux/store";
+import { iWhite } from "./lib/constants/colors";
+import { AppearanceProvider } from "react-native-appearance";
+
 const Stack = createNativeStackNavigator();
 
 const screenOptions = {
   headerShown: false,
   contentStyle: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: iWhite,
   },
 };
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <SafeAreaProvider>
-        <Stack.Navigator screenOptions={screenOptions}>
-          <Stack.Screen name="Intro" component={IntroScreen} />
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="AddHabit" component={AddHabit} />
-        </Stack.Navigator>
-      </SafeAreaProvider>
-    </NavigationContainer>
+    <AppearanceProvider>
+      <Provider store={store}>
+        <NavigationContainer>
+          <SafeAreaProvider>
+            <Stack.Navigator screenOptions={screenOptions}>
+              <Stack.Screen name="Intro" component={IntroScreen} />
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="AddHabit" component={AddHabit} />
+            </Stack.Navigator>
+          </SafeAreaProvider>
+        </NavigationContainer>
+      </Provider>
+    </AppearanceProvider>
   );
 }
